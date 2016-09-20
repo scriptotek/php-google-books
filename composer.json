@@ -1,0 +1,30 @@
+{
+    "name": "scriptotek/google-books",
+    "type": "library",
+    "description": "Package for interacting with the Google Books API",
+    "homepage": "http://github.com/scriptotek/google-books",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0 | ~3.0",
+        "mockery/mockery": "^0.9.5"
+    },
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Dan Michael O. Heggø",
+            "email": "danmichaelo@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Scriptotek\\GoogleBooks\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\Scriptotek\\GoogleBooks\\": "spec/"
+        }
+    }
+}

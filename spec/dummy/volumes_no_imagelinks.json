@@ -1,0 +1,71 @@
+
+{
+  "kind": "books#volumes",
+  "totalItems": 1,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "lGHCrQEACAAJ",
+      "etag": "XFO4OXaQCTs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/lGHCrQEACAAJ",
+      "volumeInfo": {
+        "title": "Low-dimensional Topology and Kleinian Groups",
+        "subtitle": "Warwick and Durham, 1984",
+        "authors": [
+          "D. B. A. Epstein",
+          "Nigel J. Hitchin",
+          "P. E. Newstead",
+          "W. M. Oxbury"
+        ],
+        "publishedDate": "1986",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0521339057"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780521339056"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 345,
+        "printType": "BOOK",
+        "categories": [
+          "Kleinian groups"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "language": "en",
+        "previewLink": "http://books.google.no/books?id=lGHCrQEACAAJ&dq=isbn:0521339057&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.no/books?id=lGHCrQEACAAJ&dq=isbn:0521339057&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.no/books/about/Low_dimensional_Topology_and_Kleinian_Gr.html?hl=&id=lGHCrQEACAAJ"
+      },
+      "saleInfo": {
+        "country": "NO",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "NO",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.no/books/reader?id=lGHCrQEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    }
+  ]
+}

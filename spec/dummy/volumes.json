@@ -1,0 +1,68 @@
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "kdwPAQAAMAAJ",
+   "etag": "Npr6GEbiFXs",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/kdwPAQAAMAAJ",
+   "volumeInfo": {
+    "title": "Foundations of scientific method",
+    "subtitle": "the nineteenth century",
+    "authors": [
+     "Indiana University. Dept. of History and Philosophy of Science"
+    ],
+    "publishedDate": "1973",
+    "industryIdentifiers": [
+     {
+      "type": "OTHER",
+      "identifier": "UOM:39015004307750"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 306,
+    "printType": "BOOK",
+    "categories": [
+     "Science"
+    ],
+    "maturityRating": "NOT_MATURE",
+    "allowAnonLogging": false,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=kdwPAQAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=kdwPAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.no/books?id=kdwPAQAAMAAJ&dq=isbn:0253324009&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.no/books?id=kdwPAQAAMAAJ&dq=isbn:0253324009&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.no/books/about/Foundations_of_scientific_method.html?hl=&id=kdwPAQAAMAAJ"
+   },
+   "saleInfo": {
+    "country": "NO",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "NO",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.no/books/reader?id=kdwPAQAAMAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   }
+  }
+ ]
+}

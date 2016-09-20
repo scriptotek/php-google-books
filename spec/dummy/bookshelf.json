@@ -1,0 +1,11 @@
+{
+  "kind": "books#bookshelf",
+  "id": 1002,
+  "selfLink": "https://www.googleapis.com/books/v1/users/113555231101190020526/bookshelves/1002",
+  "title": "Photovoltaics",
+  "access": "PUBLIC",
+  "updated": "2010-08-17T12:49:42.803Z",
+  "created": "2010-08-17T12:49:42.803Z",
+  "volumeCount": 6,
+  "volumesLastUpdated": "2010-08-17T12:49:42.782Z"
+}

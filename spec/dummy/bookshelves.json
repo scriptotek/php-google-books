@@ -1,0 +1,72 @@
+
+{
+  "kind": "books#bookshelves",
+  "items": [
+    {
+      "kind": "books#bookshelf",
+      "id": 0,
+      "selfLink": "https://www.googleapis.com/books/v1/users/113555231101190020526/bookshelves/0",
+      "title": "Favorites",
+      "access": "PUBLIC",
+      "updated": "2008-04-07T11:38:01.208Z",
+      "created": "2008-04-07T11:38:01.208Z",
+      "volumeCount": 3,
+      "volumesLastUpdated": "2016-09-20T19:47:05.000Z"
+    },
+    {
+      "kind": "books#bookshelf",
+      "id": 3,
+      "selfLink": "https://www.googleapis.com/books/v1/users/113555231101190020526/bookshelves/3",
+      "title": "Reading now",
+      "access": "PUBLIC",
+      "updated": "2010-12-13T17:33:07.655Z",
+      "created": "2010-12-13T17:33:07.655Z",
+      "volumeCount": 4,
+      "volumesLastUpdated": "2010-12-13T17:33:07.654Z"
+    },
+    {
+      "kind": "books#bookshelf",
+      "id": 2,
+      "selfLink": "https://www.googleapis.com/books/v1/users/113555231101190020526/bookshelves/2",
+      "title": "To read",
+      "access": "PUBLIC",
+      "updated": "2010-08-17T11:52:09.942Z",
+      "created": "2010-08-17T11:52:09.942Z",
+      "volumeCount": 2,
+      "volumesLastUpdated": "2010-08-17T11:52:09.941Z"
+    },
+    {
+      "kind": "books#bookshelf",
+      "id": 4,
+      "selfLink": "https://www.googleapis.com/books/v1/users/113555231101190020526/bookshelves/4",
+      "title": "Have read",
+      "access": "PUBLIC",
+      "updated": "2010-03-25T15:59:04.012Z",
+      "created": "2010-03-25T15:59:04.012Z",
+      "volumeCount": 4,
+      "volumesLastUpdated": "2016-09-20T19:47:05.000Z"
+    },
+    {
+      "kind": "books#bookshelf",
+      "id": 1001,
+      "selfLink": "https://www.googleapis.com/books/v1/users/113555231101190020526/bookshelves/1001",
+      "title": "Ønskeliste",
+      "access": "PUBLIC",
+      "updated": "2010-05-11T22:51:29.875Z",
+      "created": "2010-05-11T22:51:29.875Z",
+      "volumeCount": 9,
+      "volumesLastUpdated": "2016-09-20T19:47:05.000Z"
+    },
+    {
+      "kind": "books#bookshelf",
+      "id": 1002,
+      "selfLink": "https://www.googleapis.com/books/v1/users/113555231101190020526/bookshelves/1002",
+      "title": "Photovoltaics",
+      "access": "PUBLIC",
+      "updated": "2010-08-17T12:49:42.803Z",
+      "created": "2010-08-17T12:49:42.803Z",
+      "volumeCount": 6,
+      "volumesLastUpdated": "2010-08-17T12:49:42.782Z"
+    }
+  ]
+}
