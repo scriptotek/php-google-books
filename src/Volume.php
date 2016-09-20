@@ -73,4 +73,9 @@ class Volume
             return $this->data->{$key};
         }
     }
+
+    public function __toString()
+    {
+        return json_encode($this->data);
+    }
 }

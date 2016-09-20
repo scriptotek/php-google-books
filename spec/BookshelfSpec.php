@@ -44,4 +44,10 @@ class BookshelfSpec extends ObjectBehavior
         $this->getVolumes()->shouldHaveType(\Generator::class);
         $this->getVolumes()->current()->shouldHaveType(Volume::class);
     }
+
+    public function it_should_be_string_serializable()
+    {
+        $this->init();
+        $this->__toString()->shouldStartWith('{');
+    }
 }

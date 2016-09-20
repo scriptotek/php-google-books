@@ -59,4 +59,10 @@ class VolumeSpec extends ObjectBehavior
         $this->init();
         $this->description->shouldBe('The physical framework used to describe the various conversions is endoreversible thermodynamics, a subset of irreversible thermodynamics.');
     }
+
+    public function it_should_be_string_serializable()
+    {
+        $this->init();
+        $this->__toString()->shouldStartWith('{');
+    }
 }
