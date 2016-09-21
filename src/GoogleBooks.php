@@ -22,6 +22,11 @@ class GoogleBooks
     protected $http;
 
     /**
+     * @var key string API key
+     */
+    protected $key;
+
+    /**
      * @var Volumes
      */
     public $volumes;
@@ -38,6 +43,8 @@ class GoogleBooks
             'handler' => isset($options['handler']) ? $options['handler'] : null,
         ]);
 
+        $this->key = isset($options['key']) ? $options['key'] : null;
+
         $this->volumes = new Volumes($this);
         $this->bookshelves = new Bookshelves($this);
 
@@ -46,6 +53,9 @@ class GoogleBooks
 
     protected function raw($endpoint, $params = [], $method='GET')
     {
+        if (!is_null($this->key)) {
+            $params['key'] = $this->key;
+        }
         try {
             $response = $this->http->request($method, $endpoint, [
                 'query' => $params,

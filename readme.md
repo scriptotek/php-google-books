@@ -25,8 +25,12 @@ Start by creating a new client:
 require_once('vendor/autoload.php');
 use Scriptotek\GoogleBooks\GoogleBooks;
 
-$books = new GoogleBooks();
+$books = new GoogleBooks(['key' => 'YOUR_API_KEY_HERE']);
 ```
+
+Note that you can also use the API without specifying an API key,
+but you will then get a lower request quota. A `UsageLimitExceeded`
+exception is thrown when you reach the quota.
 
 ### Working with volumes
 
