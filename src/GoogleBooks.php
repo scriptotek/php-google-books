@@ -46,9 +46,33 @@ class GoogleBooks
 
     protected function raw($endpoint, $params = [], $method='GET')
     {
-        $response = $this->http->request($method, $endpoint, [
-            'query' => $params,
-        ]);
+        try {
+            $response = $this->http->request($method, $endpoint, [
+                'query' => $params,
+            ]);
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            // 400 level errors
+            if ($e->getResponse()->getStatusCode() == 403) {
+                $json = json_decode($e->getResponse()->getBody());
+
+                $domain = $json->error->errors[0]->domain;
+                $reason = $json->error->errors[0]->reason;
+                $message = $json->error->errors[0]->message;
+
+                if ($domain == 'usageLimits') {
+                    throw new Exceptions\UsageLimitExceeded($message, $reason);
+                }
+            }
+
+            throw $e;
+
+        } catch (\GuzzleHttp\Exception\RequestException $e) {
+            // networking error (connection timeout, DNS errors, etc.)
+
+            // TODO: sleep and retry
+
+            throw $e;
+        }
 
         return json_decode($response->getBody());
     }
