@@ -1,0 +1,74 @@
+{
+ "kind": "books#volume",
+ "id": "kPbzR4LDkAkC",
+ "etag": "lczsNYEZ95k",
+ "selfLink": "https://www.googleapis.com/books/v1/volumes/kPbzR4LDkAkC",
+ "volumeInfo": {
+  "title": "Thermodynamics of Solar Energy Conversion",
+  "authors": [
+   "Alexis De Vos"
+  ],
+  "publisher": "John Wiley & Sons",
+  "publishedDate": "2008-03-28",
+  "description": "The physical framework used to describe the various conversions is endoreversible thermodynamics, a subset of irreversible thermodynamics.",
+  "industryIdentifiers": [
+   {
+    "type": "ISBN_10",
+    "identifier": "352740841X"
+   },
+   {
+    "type": "ISBN_13",
+    "identifier": "9783527408412"
+   }
+  ],
+  "readingModes": {
+   "text": false,
+   "image": true
+  },
+  "pageCount": 205,
+  "printedPageCount": 214,
+  "dimensions": {
+   "height": "25.00 cm",
+   "width": "17.80 cm",
+   "thickness": "1.70 cm"
+  },
+  "printType": "BOOK",
+  "categories": [
+   "Technology & Engineering / Power Resources / General"
+  ],
+  "maturityRating": "NOT_MATURE",
+  "allowAnonLogging": false,
+  "contentVersion": "0.0.1.0.preview.1",
+  "imageLinks": {
+   "smallThumbnail": "http://books.google.com/books/content?id=kPbzR4LDkAkC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE72HsluK7gJFf-BfKzmrbVa7_R3iUIxgzpWR_rOXfyHXPtYOTiO0RKNWC8BqjIVJBMsOINNiUtUhtc7wZ-kBx-S_YA3RAPacsH8PqA7PhyJZYCI5LWkaqW3C0RBaMIvBYwi9_V41&source=gbs_api",
+   "thumbnail": "http://books.google.com/books/content?id=kPbzR4LDkAkC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73lm257b9Zp5XHV7y4qnHRDWBDYPmxgfgNCVxAPG0JzzW8xTVuzWoyLJ-KyPkZI21l5sVxMdX5qvrffzjE4B9JfWoaOoSMKW61ucg9V8jCnsCFCyPlgTELyrrhWggFjo5ldKeGN&source=gbs_api",
+   "small": "http://books.google.com/books/content?id=kPbzR4LDkAkC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE72IdCBUcw24r5hqyGPQwmrHJk6OLVOKR9XNrn8mH4RIQIEvhFEcnKrcOPhnjEM8g4PeCDoUaKB6HAVP_FTO_3HkgHqEujYmHK1TrvSxdtPr8GkWPSfTyEINR4FRDvSPi158C0-C&source=gbs_api",
+   "medium": "http://books.google.com/books/content?id=kPbzR4LDkAkC&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE736QO2TE3guH62ldy2a_1dFbOX8hPvakUOPdbtiiq4K1X1hNINzESxqqM3pfJKKIeuNpTutASxIysoBQlyDIh-I1Bm2_Ct0ICL97OD4_J50wPhVuUJrYhHR8kXgLylEslwukhnv&source=gbs_api"
+  },
+  "language": "en",
+  "previewLink": "http://books.google.no/books?id=kPbzR4LDkAkC&hl=&source=gbs_api",
+  "infoLink": "http://books.google.no/books?id=kPbzR4LDkAkC&hl=&source=gbs_api",
+  "canonicalVolumeLink": "http://books.google.no/books/about/Thermodynamics_of_Solar_Energy_Conversio.html?hl=&id=kPbzR4LDkAkC"
+ },
+ "saleInfo": {
+  "country": "NO",
+  "saleability": "NOT_FOR_SALE",
+  "isEbook": false
+ },
+ "accessInfo": {
+  "country": "NO",
+  "viewability": "PARTIAL",
+  "embeddable": true,
+  "publicDomain": false,
+  "textToSpeechPermission": "ALLOWED",
+  "epub": {
+   "isAvailable": false
+  },
+  "pdf": {
+   "isAvailable": false
+  },
+  "webReaderLink": "http://books.google.no/books/reader?id=kPbzR4LDkAkC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+  "accessViewStatus": "SAMPLE",
+  "quoteSharingAllowed": false
+ }
+}

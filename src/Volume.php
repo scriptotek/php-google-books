@@ -48,8 +48,8 @@ class Volume
         }
 
         foreach (self::$coverSizes as $n => $size) {
-            $url = $this->data->volumeInfo->imageLinks->{$size};
-            if ($n >= $idx && !is_null($url)) {
+            if ($n >= $idx && isset($this->data->volumeInfo->imageLinks->{$size})) {
+                $url = $this->data->volumeInfo->imageLinks->{$size};
                 break;
             }
         }
