@@ -79,3 +79,20 @@ foreach ($books->bookshelves->byUser('113555231101190020526') as $shelf) {
     echo "</ul>\n";
 }
 ```
+
+## Laravel 5 integration
+
+This project ships with a service provider that you can add to the
+`$providers` array in your `config/app.php`:
+
+    Scriptotek\GoogleBooks\GoogleBooksServiceProvider::class,
+
+There's also a facade you can add to the `$aliases` array if you like:
+
+    'GoogleBooks' => Scriptotek\GoogleBooks\GoogleBooksFacade::class,
+
+Run
+
+    $ php artisan vendor:publish --provider="Scriptotek\GoogleBooks\GoogleBooksServiceProvider"
+
+to create the `config/googlebooks.php` configuration file.
