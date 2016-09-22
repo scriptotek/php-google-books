@@ -3,8 +3,8 @@
 
 # php-google-books
 
-Simple PHP package for working with the [Google Books API](https://developers.google.com/books/docs/v1/reference/).
-The package doesn't yet support authentication, so it only works with public data.
+Simple PHP package for working with the [Google Books API](https://developers.google.com/books/docs/v1/reference/). With Laravel5 integration.
+Doesn't yet support authentication, so it only works with public data.
 PRs are welcome.
 
 ### Install using Composer
@@ -96,3 +96,31 @@ Run
     $ php artisan vendor:publish --provider="Scriptotek\GoogleBooks\GoogleBooksServiceProvider"
 
 to create the `config/googlebooks.php` configuration file.
+
+## Troubleshooting
+
+If you get 403 Forbidden with
+
+```json
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "global",
+    "reason": "unknownLocation",
+    "message": "Cannot determine user location for geographically restricted operation."
+   }
+  ],
+  "code": 403,
+  "message": "Cannot determine user location for geographically restricted operation."
+ }
+}
+```
+
+it means the Books API failed to locate you based on your ip address. Fix this
+by specifying the 2 letter ISO639 country code manually using the `country`
+option to the constructor:
+
+```php
+$books = new GoogleBooks(['country' => 'NO']);
+```

@@ -37,6 +37,7 @@ class GoogleBooksServiceProvider extends ServiceProvider
         $this->app->singleton('googlebooks', function ($app) {
             $options = [];
             $options['key'] = $app['config']->get('googlebooks.key');
+            $options['country'] = $app['config']->get('googlebooks.country');
 
             return new GoogleBooks($options);
         });

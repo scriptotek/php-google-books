@@ -27,6 +27,17 @@ class GoogleBooks
     protected $key;
 
     /**
+     * @var country string 2 letter ISO 639 country code.
+     *
+     * The Books API must honor copyright laws from various countries, and have
+     * country-specific rights from publishers. It uses the IP address of the
+     * client to geo-locate the user, but if this fails for some reason, it will
+     * return 403 Forbidden with reason "unknownLocation". To avoid this, we can
+     * manually set the country code.
+     */
+    protected $country;
+
+    /**
      * @var Volumes
      */
     public $volumes;
@@ -44,6 +55,7 @@ class GoogleBooks
         ]);
 
         $this->key = isset($options['key']) ? $options['key'] : null;
+        $this->country = isset($options['country']) ? $options['country'] : null;
 
         $this->volumes = new Volumes($this);
         $this->bookshelves = new Bookshelves($this);
@@ -55,6 +67,9 @@ class GoogleBooks
     {
         if (!is_null($this->key)) {
             $params['key'] = $this->key;
+        }
+        if (!is_null($this->country)) {
+            $params['country'] = $this->country;
         }
         try {
             $response = $this->http->request($method, $endpoint, [
