@@ -46,6 +46,11 @@ class GoogleBooks
      * @var Bookshelves
      */
     public $bookshelves;
+    
+    /**
+     * @var maxResults
+     */
+    public $maxResults;
 
     public function __construct($options = [])
     {
@@ -61,6 +66,8 @@ class GoogleBooks
         $this->bookshelves = new Bookshelves($this);
 
         $this->batchSize = isset($options['batchSize']) ? $options['batchSize'] : 40;
+
+        $this->maxResults = isset($options['maxResults']) ? $options['maxResults'] : null;
     }
 
     protected function raw($endpoint, $params = [], $method='GET')
@@ -71,6 +78,11 @@ class GoogleBooks
         if (!is_null($this->country)) {
             $params['country'] = $this->country;
         }
+
+        if (!is_null($this->maxResults)) {
+            $params['maxResults'] = $this->maxResults;
+        }
+
         try {
             $response = $this->http->request($method, $endpoint, [
                 'query' => $params,
