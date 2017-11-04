@@ -57,7 +57,7 @@ foreach ($books->volumes->search('Hello world') as $vol) {
 Note that the `search()` method returns a generator
 that automatically fetches more results until the result
 list is depleted. If there are thousands of results this will of course take a *long*
-time to fetch, so you probably want to define a limit.
+time to fetch, so you probably want to define a limit. Limits  can be defined as an option: `['maxResults' => 10]` inside the `GoogleBooks` class.
 
 ### Working with bookshelves
 
