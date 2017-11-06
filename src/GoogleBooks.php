@@ -119,6 +119,12 @@ class GoogleBooks
         return $this->raw($path);
     }
 
+    public function limit(int $maxResults)
+    {
+        $this->maxResults = $maxResults;
+        return $this;
+    }
+
     public function listItems($endpoint, $params = [])
     {
         $params['maxResults'] = $this->batchSize;
