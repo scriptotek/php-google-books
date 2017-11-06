@@ -119,6 +119,16 @@ class GoogleBooks
         return $this->raw($path);
     }
 
+    
+    public function chunk(\Generator $generator, $chunkInt)
+    {
+        $chunk = [];
+        foreach ($generator as $gen) {
+            $chunk[] = $generator->current();
+        }
+        return array_chunk($chunk, $chunkInt);
+    }
+
     public function limit($maxResults)
     {
         $this->maxResults = $maxResults;
