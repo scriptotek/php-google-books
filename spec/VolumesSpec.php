@@ -6,6 +6,7 @@ use Mockery as m;
 use Scriptotek\GoogleBooks\GoogleBooks;
 use Scriptotek\GoogleBooks\Volume;
 use Scriptotek\GoogleBooks\Volumes;
+use Scriptotek\GoogleBooks\LibraryBuilder;
 use PhpSpec\ObjectBehavior;
 
 class VolumesSpec extends ObjectBehavior
@@ -36,7 +37,7 @@ class VolumesSpec extends ObjectBehavior
     {
         $this->init();
         $res = $this->search('isbn:0253324009');
-        $res->shouldHaveType(\Generator::class);
+        $res->shouldHaveType(LibraryBuilder::class);
     }
 
     function it_should_provide_search_based_lookup()

@@ -132,7 +132,7 @@ class LibraryBuilder
     {
         $params = [];
         $params['q'] = $this->query;
-        $params['maxResults'] = $this->limit ?? 40;
+        $params['maxResults'] = $this->limit ?: 40;
 
         return $params;
     }
