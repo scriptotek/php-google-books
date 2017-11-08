@@ -26,7 +26,7 @@ class LibraryBuilder
     /**
      * Limits the results. May be an integer between 1 and 40
      *
-     * @param [int] $limit
+     * @param int $limit
      * @return self
      */
     public function limit($limit)
@@ -38,7 +38,7 @@ class LibraryBuilder
     /**
      * Sets the query property
      *
-     * @param [string] $query
+     * @param string $query
      * @return self
      */
     public function search($query)
@@ -50,14 +50,14 @@ class LibraryBuilder
     /**
      * Fetches results from the Google API
      *
-     * @param [string] $id
+     * @param string $id
      * @return array
      */
     private function fetch($id = false)
     {
         if ($this->limit <= 40) {
             if ($id) {
-                return $this->client->getItem("volumes/$id", $this->getParams());
+                return $this->client->getItem("volumes/$id");
             }
             return $this->client->raw('volumes', $this->getParams());
         }
@@ -78,7 +78,7 @@ class LibraryBuilder
     /**
      * Finds and returns one result. Should accept a book ID (found on API responses)
      *
-     * @param [string] $id
+     * @param string $id
      * @return Scriptotek\GoogleBooks\Volume;
      */
     public function find($id)
@@ -89,7 +89,7 @@ class LibraryBuilder
     /**
      * Retrieves the first result
      *
-     * @return Scriptotek\GoogleBooks\Volume;
+     * @return Scriptotek\GoogleBooks\Volume
      */
     public function first()
     {
@@ -114,7 +114,7 @@ class LibraryBuilder
     /**
      * Sets the chunk property. Used as an alias for array chunking. Primarily for views
      *
-     * @param [int] $chunk
+     * @param int $chunk
      * @return self
      */
     public function chunk($chunk)
