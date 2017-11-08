@@ -56,7 +56,7 @@ class LibraryBuilder
     private function fetch($id = false)
     {
         if ($this->limit <= 40) {
-            if ($id) {
+            if ($id !== false) {
                 return $this->client->getItem("volumes/$id");
             }
             return $this->client->raw('volumes', $this->getParams());
@@ -130,6 +130,7 @@ class LibraryBuilder
      */
     private function getParams()
     {
+        $params = [];
         $params['q'] = $this->query;
         $params['maxResults'] = $this->limit ?? 40;
 
