@@ -2,6 +2,7 @@
 
 namespace Scriptotek\GoogleBooks;
 
+use Scriptotek\GoogleBooks\LibraryBuilder;
 
 class Volumes
 {
@@ -19,48 +20,36 @@ class Volumes
      */
     public function search($query)
     {
-        if ($this->chunk) {
-            return $this->client->chunk($this->fetchSearch($query), $this->chunk);
-        }
-        return $this->fetchSearch($query);
+        return (new LibraryBuilder($this->client))->search($query);
     }
 
     /**
      * @param $query
      * @return \Generator|Volume
      */
-    private function fetchSearch($query)
+    public function fetchSearch($query)
     {
+        $return = [];
         foreach ($this->client->listItems('volumes', ['q' => $query]) as $item) {
-            yield new Volume($this->client, $item);
+            $return[] = new Volume($this->client, $item);
         }
-    }
 
-    /**
-     * @param $chunk
-     * @return Volumes
-     */
-    public function chunk(int $chunk)
-    {
-        $this->chunk = $chunk;
-        return $this;
+        return $return;
     }
 
     public function firstOrNull($query)
     {
-        $res = $this->search($query)->current();
-        return $res;
+        return $this->search($query)->first();
     }
 
-    public function get($id)
+    public function find($id)
     {
-        return new Volume($this->client, $this->client->getItem("volumes/$id"), true);
+        return (new LibraryBuilder($this->client))->find($id);
     }
 
     public function byIsbn($isbn)
     {
         $isbn = preg_replace('/[^0-9Xx]/', '', $isbn);
-
-        return $this->firstOrNull('isbn:' . $isbn);
+        return $this->search('isbn:' . $isbn)->first();
     }
 }
