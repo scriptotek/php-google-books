@@ -9,7 +9,7 @@ class LibraryBuilder
 {
     private $data;
     private $client;
-    private $chunk = false;
+    private $chunk;
     private $query;
     private $limit;
 
@@ -79,7 +79,7 @@ class LibraryBuilder
      * Finds and returns one result. Should accept a book ID (found on API responses)
      *
      * @param string $id
-     * @return Scriptotek\GoogleBooks\Volume;
+     * @return Scriptotek\GoogleBooks\Volume
      */
     public function find($id)
     {
