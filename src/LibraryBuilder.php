@@ -98,7 +98,6 @@ class LibraryBuilder
         }
 
         return null;
-        
     }
 
     /**
