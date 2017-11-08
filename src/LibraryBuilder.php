@@ -93,7 +93,12 @@ class LibraryBuilder
      */
     public function first()
     {
-        return $this->fetch()->items[0];
+        if ($this->fetch()->totalItems) {
+            return $this->fetch()->items[0];
+        }
+
+        return null;
+        
     }
 
     /**

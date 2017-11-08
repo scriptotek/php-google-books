@@ -13,7 +13,7 @@ class VolumesSpec extends ObjectBehavior
 {
     function init($volumes = 'volumes.json', $volume = null)
     {
-        $books = m::mock(GoogleBooks::class);
+        $books = m::mock(new GoogleBooks);
 
         if (!is_null($volumes)) {
             $json = json_decode(file_get_contents(__DIR__ . '/dummy/' . $volumes));
@@ -44,13 +44,13 @@ class VolumesSpec extends ObjectBehavior
     {
         $this->init('volumes.json', 'volume.json');
         $res = $this->firstOrNull('isbn:0253324009');
-        $res->shouldHaveType(Volume::class);
+        $res->shouldHaveType(\stdclass::class);
     }
 
     function it_should_handle_zero_result_responses()
     {
         $this->init('volumes_zero.json');
-        $res = $this->firstOrNull('isbn:0253324009');
+        $res = $this->firstOrNull('isbn: jshdjsk');
         $res->shouldBe(null);
     }
 
@@ -58,13 +58,13 @@ class VolumesSpec extends ObjectBehavior
     {
         $this->init('volumes.json', 'volume.json');
         $res = $this->byIsbn('0253324009');
-        $res->shouldHaveType(Volume::class);
+        $res->shouldHaveType(\stdclass::class);
     }
 
     function it_should_provide_lookup_by_id()
     {
         $this->init(null, 'volume.json');
-        $res = $this->get('kdwPAQAAMAAJ');
-        $res->shouldHaveType(Volume::class);
+        $res = $this->find('kdwPAQAAMAAJ');
+        $res->shouldHaveType(\stdclass::class);
     }
 }
