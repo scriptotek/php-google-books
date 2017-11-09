@@ -41,8 +41,8 @@ class BookshelfSpec extends ObjectBehavior
     public function it_should_have_volumes()
     {
         $this->init('bookshelf.json', 'volumes.json');
-        $this->getVolumes()->shouldHaveType(\Generator::class);
-        $this->getVolumes()->current()->shouldHaveType(Volume::class);
+        $this->getVolumes()->shouldHaveCount(1);
+        $this->getVolumes()[0]->shouldHaveType(Volume::class);
     }
 
     public function it_should_be_string_serializable()

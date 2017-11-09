@@ -46,7 +46,7 @@ class GoogleBooks
      * @var Bookshelves
      */
     public $bookshelves;
-    
+
     /**
      * @var maxResults
      */
@@ -117,6 +117,20 @@ class GoogleBooks
     public function getItem($path)
     {
         return $this->raw($path);
+    }
+
+    /**
+     * If given a full URL, removes the base part.
+     *
+     * @return string
+     */
+    public function removeBaseUrl($url)
+    {
+        if (strpos($url, $this->baseUri) === false) {
+            throw new \ErrorException('Invalid URL ' . $url);
+        }
+
+        return substr($url, strlen($this->baseUri));
     }
 
     public function listItems($endpoint, $params = [])

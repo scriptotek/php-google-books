@@ -2,36 +2,31 @@
 
 namespace Scriptotek\GoogleBooks;
 
-class Bookshelf
+class Bookshelf extends Model
 {
-    protected $data;
-    protected $uid;
-    protected $client;
-
-    public function __construct(GoogleBooks $client, $data)
+    /**
+     * Get the user id for this bookshelf.
+     *
+     * @return string
+     */
+    public function getUid()
     {
-        $this->client = $client;
-        $this->data = $data;
-        $selfLinkParts = explode('/', $data->selfLink);
-        $this->uid = $selfLinkParts[count($selfLinkParts) - 3];
+        $selfLinkParts = explode('/', $this->selfLink);
+        return $selfLinkParts[count($selfLinkParts) - 3];
     }
 
+    /**
+     * Get the volumes contained in this bookshelf.
+     *
+     * @return Volume[]
+     */
     public function getVolumes()
     {
-        foreach ($this->client->listItems("users/$this->uid/bookshelves/$this->id/volumes") as $item) {
-            yield new Volume($this->client, $item);
+        $endpoint = sprintf('users/%s/bookshelves/%s/volumes', $this->getUid(), $this->id);
+        $volumes = [];
+        foreach ($this->client->listItems($endpoint) as $item) {
+            $volumes[] = new Volume($this->client, $item);
         }
-    }
-
-    public function __get($key)
-    {
-        if (isset($this->data->{$key})) {
-            return $this->data->{$key};
-        }
-    }
-
-    public function __toString()
-    {
-        return json_encode($this->data);
+        return $volumes;
     }
 }

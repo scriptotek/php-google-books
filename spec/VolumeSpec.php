@@ -11,7 +11,7 @@ class VolumeSpec extends ObjectBehavior
 {
     function init($volume = 'volume_from_list.json', $volumeFull = 'volume.json')
     {
-        $books = m::mock(GoogleBooks::class);
+        $books = m::mock(GoogleBooks::class)->makePartial();
 
         if (!is_null($volumeFull)) {
             $json = json_decode(file_get_contents(__DIR__ . '/dummy/' . $volumeFull));
@@ -70,5 +70,12 @@ class VolumeSpec extends ObjectBehavior
     {
         $this->init();
         $this->__toString()->shouldStartWith('{');
+    }
+
+    public function it_should_provide_dot_notation()
+    {
+        $this->init();
+        $this->has('volumeInfo.title')->shouldBe(true);
+        $this->get('volumeInfo.title')->shouldBe('Thermodynamics of Solar Energy Conversion');
     }
 }
