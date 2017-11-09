@@ -19,7 +19,7 @@ class GoogleBooks
     /**
      * @var Client
      */
-    public $http;
+    protected $http;
 
     /**
      * @var key string API key

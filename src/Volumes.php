@@ -7,7 +7,6 @@ use Scriptotek\GoogleBooks\LibraryBuilder;
 class Volumes
 {
     protected $client;
-    protected $chunk = false;
 
     public function __construct(GoogleBooks $client)
     {
@@ -16,7 +15,7 @@ class Volumes
 
     /**
      * @param $query
-     * @return \Generator|Volume || array
+     * @return stdclass | array
      */
     public function search($query)
     {
@@ -25,7 +24,7 @@ class Volumes
 
     /**
      * @param $query
-     * @return \Generator|Volume
+     * @return array
      */
     public function fetchSearch($query)
     {

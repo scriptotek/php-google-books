@@ -7,11 +7,11 @@ use Scriptotek\GoogleBooks\GoogleBooks;
 
 class LibraryBuilder
 {
-    private $data;
-    private $client;
-    private $chunk;
-    private $query;
-    private $limit;
+    protected $data;
+    protected $client;
+    protected $chunk;
+    protected $query;
+    protected $limit;
 
     /**
      * Accepts a GoogleBooks dependency and sets it as a client property
@@ -112,7 +112,7 @@ class LibraryBuilder
             return $this->data = array_chunk($this->fetch()->items, $this->chunk);
         }
         
-        return $this->data = $this->fetch()->items;
+        return $this->data = $this->fetch();
     }
 
     /**
