@@ -118,16 +118,6 @@ class GoogleBooks
         return $this->raw($path);
     }
 
-    
-    public function chunk(\Generator $generator, $chunkInt)
-    {
-        $chunk = [];
-        foreach ($generator as $gen) {
-            $chunk[] = $generator->current();
-        }
-        return array_chunk($chunk, $chunkInt);
-    }
-
     public function listItems($endpoint, $params = [])
     {
         $i = 0;
@@ -135,7 +125,6 @@ class GoogleBooks
         while (true) {
             $n = $i % $this->batchSize;
             $params['maxResults'] = $this->batchSize;
-            
             if ($n == 0) {
                 $params['startIndex'] = $i;
                 $return[] = $response = $this->raw($endpoint, $params);
