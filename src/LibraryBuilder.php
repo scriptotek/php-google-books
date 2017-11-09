@@ -112,7 +112,7 @@ class LibraryBuilder
             return $this->data = array_chunk($this->fetch()->items, $this->chunk);
         }
         
-        return $this->data = $this->fetch();
+        return $this->data = $this->fetch()->items;
     }
 
     /**
