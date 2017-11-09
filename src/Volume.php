@@ -2,44 +2,47 @@
 
 namespace Scriptotek\GoogleBooks;
 
-class Volume
+class Volume extends Model
 {
-    protected $client;
-    protected $data;
-    protected $full = false;
-
     protected static $coverSizes = [
-        "extraLarge",
-        "large",
-        "medium",
-        "small",
-        "thumbnail",
-        "smallThumbnail",
+        'extraLarge',
+        'large',
+        'medium',
+        'small',
+        'thumbnail',
+        'smallThumbnail',
     ];
 
-    public function __construct($client, $data, $full=false)
+    /**
+     * Provide a shortcut to the data in 'volumeInfo', so we can do e.g.
+     * `$volume->title` instead of `$volume->volumeInfo->title`.
+     *
+     * @param  string  $key
+     * @return mixed
+     */
+    public function __get($key)
     {
-        $this->client = $client;
-        $this->data = $data;
+        return $this->get("volumeInfo.$key") ?: $this->get($key);
     }
 
     /**
-     * Returns cover of size $preferredSize or smaller if a cover of size $preferredSize does not exist.
+     * Get the URL to the largest available cover, but no larger than $preferredSize.
      *
      * @param string $preferredSize
-     * @return mixed|null
+     * @return string|null
      */
-    public function getCover($preferredSize='extraLarge')
+    public function getCover($preferredSize = 'extraLarge')
     {
         $url = null;
 
-        if (!isset($this->data->volumeInfo) || !isset($this->data->volumeInfo->imageLinks)) {
+        if (!$this->has('volumeInfo.imageLinks')) {
             return null;
         }
 
-        if (!$this->full && !in_array($preferredSize, ['thumbnail', 'smallThumbnail'])) {
-            // Need to fetch the full record
-            $this->data = $this->client->getItem('volumes/' . $this->id);
+        if ($this->isSearchResult() && !in_array($preferredSize, ['thumbnail', 'smallThumbnail'])) {
+            // The brief record we get from search results only contains the sizes 'smallThumbnail'
+            // and 'thumbnail'. To get larger sizes, we need the full record.
+            $this->expandToFullRecord();
         }
 
         $idx = array_search($preferredSize, self::$coverSizes);
@@ -48,8 +51,8 @@ class Volume
         }
 
         foreach (self::$coverSizes as $n => $size) {
-            if ($n >= $idx && isset($this->data->volumeInfo->imageLinks->{$size})) {
-                $url = $this->data->volumeInfo->imageLinks->{$size};
+            if ($n >= $idx && $this->has("volumeInfo.imageLinks.{$size}")) {
+                $url = $this->get("volumeInfo.imageLinks.{$size}");
                 break;
             }
         }
@@ -57,25 +60,17 @@ class Volume
         return $this->removeCoverEdge($url);
     }
 
-    protected function removeCoverEdge($url) {
-        // Remove cover edge
+    /**
+     * Modify the cover URL to remove the cover edge.
+     *
+     * @param string $url
+     * @return string
+     */
+    protected function removeCoverEdge($url)
+    {
         if (is_null($url)) {
             return null;
         }
         return str_replace('&edge=curl', '&edge=none', $url);
-    }
-
-    public function __get($key)
-    {
-        if (isset($this->data->volumeInfo->{$key})) {
-            return $this->data->volumeInfo->{$key};
-        } else if (isset($this->data->{$key})) {
-            return $this->data->{$key};
-        }
-    }
-
-    public function __toString()
-    {
-        return json_encode($this->data);
     }
 }

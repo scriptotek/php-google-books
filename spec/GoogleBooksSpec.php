@@ -66,4 +66,14 @@ class GoogleBooksSpec extends ObjectBehavior
         $this->initHttpMock403();
         $this->shouldThrow(UsageLimitExceeded::class)->duringGetItem('documents/1');
     }
+
+    public function it_should_convert_full_urls_to_relative()
+    {
+        $this->removeBaseUrl('https://www.googleapis.com/books/v1/volumes/POny_3SvXIkC')->shouldBe('volumes/POny_3SvXIkC');
+    }
+
+    public function it_should_not_accept_full_urls_with_wrong_base()
+    {
+        $this->shouldThrow(\ErrorException::class)->duringRemoveBaseUrl('https://www.example.com/books/v1/volumes');
+    }
 }
