@@ -73,6 +73,11 @@ class Volume
             return $this->data->{$key};
         }
     }
+    
+    public function __isset($key)
+    {
+        return isset($this->data->volumeInfo->{$key}) || isset($this->data->{$key});
+    }
 
     public function __toString()
     {

@@ -29,6 +29,11 @@ class Bookshelf
             return $this->data->{$key};
         }
     }
+    
+    public function __isset($key)
+    {
+        return isset($this->data->{$key});
+    }
 
     public function __toString()
     {
