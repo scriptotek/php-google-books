@@ -1,5 +1,6 @@
 [![Build Status](https://img.shields.io/travis/scriptotek/php-google-books.svg)](https://travis-ci.org/scriptotek/php-google-books)
 [![Scrutinizer code quality](https://scrutinizer-ci.com/g/scriptotek/php-google-books/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/scriptotek/php-google-books/?branch=master)
+[![Packagist](https://img.shields.io/packagist/v/scriptotek/google-books.svg)](https://packagist.org/packages/scriptotek/google-books)
 [![Gitter](https://badges.gitter.im/scriptotek/php-google-books.svg)](https://gitter.im/scriptotek/php-google-books?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 # php-google-books
