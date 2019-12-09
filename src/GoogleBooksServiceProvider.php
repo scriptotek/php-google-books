@@ -4,6 +4,7 @@ namespace Scriptotek\GoogleBooks;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use Scriptotek\GoogleBooks\Exceptions\InvalidCOnfiguration;
 
 /**
  * Laravel 5 service provider
@@ -29,28 +30,21 @@ class GoogleBooksServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/config.php',
-            'googlebooks'
-        );
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'googlebooks');
 
-        $this->app->singleton(GoogleBooks::class, function ($app) {
-            return new GoogleBooks([
-                'key' => $app['config']->get('googlebooks.key'),
-                'country' => $app['config']->get('googlebooks.country'),
-            ]);
+        $this->app->singleton(GoogleBooks::class, function () {
+            $config = config('googlebooks');
+            $this->validateConfig($config);
+            return new GoogleBooks($config);
         });
 
         $this->app->alias(GoogleBooks::class, 'googlebooks');
     }
 
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array
-     */
-    public function provides()
+    protected function validateConfig(array $config = null)
     {
-        return [GoogleBooks::class, 'googlebooks'];
+        if (empty($config['key'])) {
+            throw InvalidConfiguration::keyNotSpecified();
+        }
     }
 }
