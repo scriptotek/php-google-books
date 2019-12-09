@@ -29,20 +29,19 @@ class GoogleBooksServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $app = $this->app;
         $this->mergeConfigFrom(
             __DIR__.'/../config/config.php',
             'googlebooks'
         );
-        $this->app->singleton('googlebooks', function ($app) {
-            $options = [];
-            $options['key'] = $app['config']->get('googlebooks.key');
-            $options['country'] = $app['config']->get('googlebooks.country');
 
-            return new GoogleBooks($options);
+        $this->app->singleton(GoogleBooks::class, function ($app) {
+            return new GoogleBooks([
+                'key' => $app['config']->get('googlebooks.key'),
+                'country' => $app['config']->get('googlebooks.country'),
+            ]);
         });
 
-        $app->alias('googlebooks', GoogleBooks::class);
+        $this->app->alias(GoogleBooks::class, 'googlebooks');
     }
 
     /**
@@ -52,6 +51,6 @@ class GoogleBooksServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['googlebooks'];
+        return [GoogleBooks::class, 'googlebooks'];
     }
 }

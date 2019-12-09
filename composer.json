@@ -26,5 +26,15 @@
         "psr-4": {
             "spec\\Scriptotek\\GoogleBooks\\": "spec/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Scriptotek\\GoogleBooks\\GoogleBooksServiceProvider"
+            ],
+            "aliases": {
+                "GoogleBooks": "Scriptotek\\GoogleBooks\\GoogleBooksFacade"
+            }
+        }
     }
 }
