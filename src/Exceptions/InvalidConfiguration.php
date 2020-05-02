@@ -4,7 +4,7 @@ namespace Scriptotek\GoogleBooks\Exceptions;
 
 use Exception;
 
-class InvalidCOnfiguration extends Exception
+class InvalidConfiguration extends Exception
 {
     public static function keyNotSpecified()
     {
