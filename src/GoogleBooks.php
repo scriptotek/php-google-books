@@ -70,7 +70,7 @@ class GoogleBooks
         $this->maxResults = isset($options['maxResults']) ? $options['maxResults'] : null;
     }
 
-    protected function raw($endpoint, $params = [], $method='GET')
+    public function raw($endpoint, $params = [], $method='GET')
     {
         if (!is_null($this->key)) {
             $params['key'] = $this->key;
@@ -100,7 +100,6 @@ class GoogleBooks
                     throw new Exceptions\UsageLimitExceeded($message, $reason);
                 }
             }
-
             throw $e;
 
         } catch (\GuzzleHttp\Exception\RequestException $e) {
@@ -121,22 +120,21 @@ class GoogleBooks
 
     public function listItems($endpoint, $params = [])
     {
-        $params['maxResults'] = $this->batchSize;
-
         $i = 0;
+        $return = [];
         while (true) {
             $n = $i % $this->batchSize;
+            $params['maxResults'] = $this->batchSize;
             if ($n == 0) {
                 $params['startIndex'] = $i;
-                $response = $this->raw($endpoint, $params);
+                $return[] = $response = $this->raw($endpoint, $params);
             }
             if (isset($response->totalItems) && $i >= $response->totalItems) {
-                return;
+                return $return;
             }
             if (!isset($response->items[$n])) {
-                return;
+                return $return;
             }
-            yield $response->items[$n];
             $i++;
         }
     }
