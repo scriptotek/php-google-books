@@ -1,8 +1,8 @@
 {
-    "name": "scriptotek/google-books",
+    "name": "foradev/google-books",
     "type": "library",
-    "description": "Package for interacting with the Google Books API",
-    "homepage": "http://github.com/scriptotek/google-books",
+    "description": "Package for interacting with the Google Books API. Forked from scriptotek/google-books",
+    "homepage": "http://github.com/foradev/google-books",
     "require": {
         "guzzlehttp/guzzle": "^6.2|^7"
     },
@@ -13,8 +13,8 @@
     "license": "ISC",
     "authors": [
         {
-            "name": "Dan Michael O. Heggø",
-            "email": "danmichaelo@gmail.com"
+            "name": "Francesco Abeni",
+            "email": "f.abeni@ora.dev"
         }
     ],
     "autoload": {
